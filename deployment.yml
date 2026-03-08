@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bluesite
+  labels:
+    name: bluesite
+    app: Demo-BlueSite
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: bluesite
+      app: Demo-BlueSite
+  template:
+    metadata:
+       name: bluesite
+       labels:
+          name: bluesite
+          app: Demo-BlueSite
+    spec:
+      containers:
+        - name: bluesite
+          image: damsconas/blue-site:latest
+          ports:
+            - containerPort: 5000
